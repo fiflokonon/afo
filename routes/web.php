@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Models\Role;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,9 +35,27 @@ Route::get('/users', function () {
     return view('pages.userlist', ['users' => $users]);
 });
 
-Route::get('/profile', function () {
-    return view('pages.profile');
-});
+Route::get('/profile/{id?}', function ($id = null) {
+    if ($id) {
+        $user = User::findOrFail($id);
+        if ($user)
+            return view('pages.profile', ['user' => $user, 'title' => 'Détails Utilisateur']);
+        else
+            return redirect('/');
+    }
+    else
+    {
+        if (Auth::check())
+        {
+            return view('pages.profile', ['user' => Auth::user(), 'title' => 'Profil']);
+        }
+        else
+        {
+            return redirect('/');
+        }
+    }
+})->name('profile');
+
 
 Route::post('/adduser', [AuthController::class, 'register'])->name('adduser');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
