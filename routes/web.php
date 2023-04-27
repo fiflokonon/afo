@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function (){
     return view('pages.dashboard');
-});
+})->name('dashboard');
 
 Route::get('/inscription', function () {
     $roles = Role::all();
@@ -33,7 +33,7 @@ Route::get('/inscription', function () {
 Route::get('/users', function () {
     $users = User::all();
     return view('pages.userlist', ['users' => $users]);
-});
+})->name('userlist');
 
 Route::get('/profile/{id?}', function ($id = null) {
     if ($id) {

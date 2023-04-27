@@ -7,11 +7,11 @@
     <div id="wrapper">
         @include('pages.header')
         <div class="container-fluid">
-            <h3 class="text-dark mb-4">Profile</h3>
+            <h3 class="text-dark mb-4">Profil</h3>
             <div class="row mb-3">
                 <div class="col-lg-4">
                     <div class="card mb-3">
-                        <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4" src="/assets/img/dogs/image2.jpeg" width="160" height="160">
+                        <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4" src="/uploads/profile_images/{{$user->profile_photo}}" width="160" height="160">
                             <div class="mb-3"><button class="btn btn-primary btn-sm" type="button">Change Photo</button></div>
                         </div>
                     </div>

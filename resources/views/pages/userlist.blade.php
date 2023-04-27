@@ -32,7 +32,7 @@
                             @foreach($users as $user)
                                 <tr>
                                     <td><img class="rounded-circle me-2" width="30" height="30"
-                                             src="assets/img/avatars/avatar1.jpeg">{{$user->first_name}} {{$user->last_name}}
+                                             src="/uploads/profile_images/{{$user->profile_photo}}">{{$user->first_name}} {{$user->last_name}}
                                     </td>
                                     <td>{{$user->role->role}}</td>
                                     <td>{{$user->email}}</td>
