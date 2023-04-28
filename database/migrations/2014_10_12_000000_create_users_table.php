@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->foreignId('role_id')->constrained('roles');
             $table->string('profile_photo')->nullable();
+            $table->string('adresse')->nullable();
             $table->boolean('statut')->default(0);
             $table->rememberToken();
             $table->timestamps();

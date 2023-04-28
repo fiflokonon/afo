@@ -27,12 +27,19 @@
                                     <form class="user" method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="mb-3"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email"></div>
-                                        <div class="mb-3"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Password" name="password"></div>
+                                        <div class="mb-3">
+                                            <div class="input-group mb-3">
+                                                <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Mot de passe">
+                                                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                                    <i class="fa fa-eye" id="eyeIcon"></i>
+                                                </button>
+                                            </div>
+                                        </div>
                                         <div class="mb-3">
                                             <div class="custom-control custom-checkbox small">
                                                 <div class="form-check"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label" for="formCheck-1">Remember Me</label></div>
                                             </div>
-                                        </div><button class="btn btn-primary d-block btn-user w-100" type="submit">Login</button>
+                                        </div><button class="btn btn-primary d-block btn-user w-100" type="submit">Se connecter</button>
                                         <!--<hr><a class="btn btn-primary d-block btn-google btn-user w-100 mb-2" role="button"><i class="fab fa-google"></i>&nbsp; Login with Google</a><a class="btn btn-primary d-block btn-facebook btn-user w-100" role="button"><i class="fab fa-facebook-f"></i>&nbsp; Login with Facebook</a>
                                         <hr>-->
                                     </form>

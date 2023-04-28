@@ -35,6 +35,7 @@ class AuthController extends Controller
             'password' => 'required|confirmed',
             'role' => 'required',
             'phone' => 'required|unique:users',
+            'adresse' => 'nullable',
             'photo' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -52,8 +53,30 @@ class AuthController extends Controller
         $user->password = Hash::make($validatedData['password']);
         $user->role_id = $validatedData['role'];
         $user->phone = $validatedData['phone'];
+        $user->adresse = $validatedData['adresse'];
         $user->statut = true;
+        $user->profile_photo = $this->treatPhoto($request);
+        $user->save();
+        return redirect()->route('userlist');
+    }
 
+    public function uploadPhoto(int $id, Request $request)
+    {
+        $user = User::find($id);
+        if ($user)
+        {
+            $user->profile_photo = $this->treatPhoto($request);
+            $user->save();
+            return redirect()->route('profile', ['id' => $user->id]);
+        }
+        else
+        {
+            return back()->withErrors(['problem' => 'Difficultés à identifier l\'utilisateur']);
+        }
+    }
+
+    public function treatPhoto(Request $request)
+    {
         // Traitement de l'upload de la photo de profil
         if ($request->hasFile('photo')) {
             $image = $request->file('photo');
@@ -68,12 +91,52 @@ class AuthController extends Controller
             if (!$image->move($path, $filename)) {
                 return back()->withErrors(['photo' => 'Erreur lors de l\'enregistrement de l\'image.']);
             }
-            $user->profile_photo = $filename;
+            return $filename;
+        }
+    }
+
+    public function updateUser(int $id, Request $request)
+    {
+        $user = User::find($id);
+        if (!$user) {
+            return back()->withErrors(['problem' => 'Utilisateur introuvable']);
         }
 
+        $validator = Validator::make($request->all(), [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email|unique:users,email,' . $id,
+            'password' => 'nullable|confirmed',
+            'role' => 'required',
+            'phone' => 'required|unique:users,phone,' . $id,
+            'adresse' => 'nullable',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $validatedData = $validator->validated();
+
+        $user->first_name = $validatedData['first_name'];
+        $user->last_name = $validatedData['last_name'];
+        $user->email = $validatedData['email'];
+        $user->role_id = $validatedData['role'];
+        $user->phone = $validatedData['phone'];
+        $user->adresse = $validatedData['adresse'];
+        $user->statut = true;
+
+        // si l'utilisateur a fourni un nouveau mot de passe, le hasher
+        if ($validatedData['password']) {
+            $user->password = Hash::make($validatedData['password']);
+        }
         $user->save();
-        return redirect()->route('userlist');
+        return redirect()->route('userlist')->with('success', 'Utilisateur mis à jour avec succès.');
     }
+
 
 
 

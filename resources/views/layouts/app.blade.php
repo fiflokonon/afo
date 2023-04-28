@@ -16,6 +16,35 @@
     <script src="/assets/js/chart.min.js"></script>
     <script src="/assets/js/bs-init.js"></script>
     <script src="/assets/js/theme.js"></script>
+<!--<script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+    const eyeIcon = document.querySelector('#eyeIcon');
+
+    togglePassword.addEventListener('click', function (e) {
+        // Change le type de l'input de password à text et vice versa
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        // Change l'icône de l'oeil en fonction de l'état du champ
+        eyeIcon.classList.toggle(' fa fa-eye-slash');
+        eyeIcon.classList.toggle('fa fa-eye');
+    });
+
+</script>-->
+<script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+    const eyeIcon = document.querySelector('#eyeIcon');
+
+    togglePassword.addEventListener('click', function (e) {
+        // Change le type de l'input de password à text et vice versa
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        // Change l'icône de l'oeil en fonction de l'état du champ
+        eyeIcon.classList.toggle('fa-eye-slash');
+        eyeIcon.classList.toggle('fa-eye');
+    });
+</script>
 </body>
 </html>
 

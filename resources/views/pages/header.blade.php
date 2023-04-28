@@ -5,6 +5,7 @@
         ?>
     <script>window.location = "{{ $login_url }}";</script>
 @endif
+
 <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
     <div class="container-fluid d-flex flex-column p-0"><a
             class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
@@ -17,9 +18,9 @@
             <li class="nav-item"><a class="nav-link" href="{{ route('userlist') }}"><i class="fas fa-table"></i> <span>Utilisateurs</span></a></li>
             <li class="nav-item"><a class="nav-link" href="login.html"><i class="fas fa-user-nurse"></i> <span>Générations</span></a></li>
             <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-video-camera"></i> <span>Flux vidéo</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-couch"></i> <span>Évolution</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-paperclip"></i> <span>Étapes</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-raspberry-pi"></i> <span>Rapports</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-chart-line"></i> <span>Évolution</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-file-contract"></i> <span>Étapes</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-comments"></i> <span>Rapports</span></a></li>
         </ul>
         <div class="text-center d-none d-md-inline">
             <button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button>

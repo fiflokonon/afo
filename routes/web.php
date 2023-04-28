@@ -36,10 +36,11 @@ Route::get('/users', function () {
 })->name('userlist');
 
 Route::get('/profile/{id?}', function ($id = null) {
+    $roles = Role::all();
     if ($id) {
         $user = User::findOrFail($id);
         if ($user)
-            return view('pages.profile', ['user' => $user, 'title' => 'Détails Utilisateur']);
+            return view('pages.profile', ['user' => $user, 'roles' => $roles, 'title' => 'Détails Utilisateur']);
         else
             return redirect('/');
     }
@@ -47,7 +48,7 @@ Route::get('/profile/{id?}', function ($id = null) {
     {
         if (Auth::check())
         {
-            return view('pages.profile', ['user' => Auth::user(), 'title' => 'Profil']);
+            return view('pages.profile', ['user' => Auth::user(), 'roles' => $roles, 'title' => 'Profil']);
         }
         else
         {
@@ -59,5 +60,7 @@ Route::get('/profile/{id?}', function ($id = null) {
 
 Route::post('/adduser', [AuthController::class, 'register'])->name('adduser');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/addphoto/{id}', [AuthController::class, 'uploadPhoto'])->name('addphoto');
+Route::post('/updateuser/{id}', [AuthController::class, 'updateUser'])->name('updateuser');
 
 
