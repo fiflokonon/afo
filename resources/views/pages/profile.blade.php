@@ -130,7 +130,7 @@
                                                     <div class="input-group mb-3">
                                                         <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe">
                                                         <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                                                            <i class="fa fa-eye-slash" id="eyeIcon"></i>
+                                                            <i class="fa fa-eye" id="eyeIcon"></i>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -140,7 +140,7 @@
                                                     <div class="input-group mb-3">
                                                         <input type="password" class="form-control" id="password" name="password_confirmation" placeholder="Confirmer Mot de passe">
                                                         <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                                                            <i class="fa fa-eye-slash" id="eyeIcon"></i>
+                                                            <i class="fa fa-eye" id="eyeIcon"></i>
                                                         </button>
                                                     </div>
                                                 </div>

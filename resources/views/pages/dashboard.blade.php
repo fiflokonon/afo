@@ -82,10 +82,10 @@
                             <div class="my-5"></div>
                             <div class="row text-center mb-2">
                                 <div class="col-sm-6">
-                                    <a href=""><button class="btn btn-primary rounded-2"><i class="fa fa-plus"></i> Créer une nouvelle génération</button></a>
+                                    <a href="{{ route('new-generation') }}"><button class="btn btn-primary rounded-2"><i class="fa fa-plus"></i> Créer une nouvelle génération</button></a>
                                 </div>
                                 <div class="col-sm-6 mt-3 mt-sm-0">
-                                    <a href=""><button class="btn btn-danger rounded-2"><i class="fa fa-table"></i> Liste des générations</button></a>
+                                    <a href="{{ route('generationlist') }}"><button class="btn btn-danger rounded-2"><i class="fa fa-table"></i> Liste des générations</button></a>
                                 </div>
                             </div>
                         </div>

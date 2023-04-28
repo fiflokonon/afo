@@ -16,7 +16,7 @@
         <ul class="navbar-nav text-light" id="accordionSidebar">
             <li class="nav-item"><a class="nav-link active" href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
             <li class="nav-item"><a class="nav-link" href="{{ route('userlist') }}"><i class="fas fa-table"></i> <span>Utilisateurs</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="login.html"><i class="fas fa-user-nurse"></i> <span>Générations</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('generationlist') }}"><i class="fas fa-user-nurse"></i> <span>Générations</span></a></li>
             <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-video-camera"></i> <span>Flux vidéo</span></a></li>
             <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-chart-line"></i> <span>Évolution</span></a></li>
             <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-file-contract"></i> <span>Étapes</span></a></li>
@@ -136,9 +136,9 @@
                         <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">
                                 <span class="d-none d-lg-inline me-2 text-gray-600 small">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</span>
                                 <img class="border rounded-circle img-profile" src="/uploads/profile_images/{{Auth::user()->profile_photo}}"></a>
-                            <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in"><a class="dropdown-item" href="{{route('profile')}}"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Settings</a><a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Activity log</a>
+                            <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in"><a class="dropdown-item" href="{{ route('profile') }}"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Settings</a><a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Activity log</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i> Logout</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i> Logout</a>
                             </div>
                         </div>
                         @endif

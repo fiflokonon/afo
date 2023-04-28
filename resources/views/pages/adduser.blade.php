@@ -38,8 +38,22 @@
                                 </div>
                                 <div class="mb-3"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Adresse Email" name="email"></div>
                                 <div class="row mb-3">
-                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" id="examplePasswordInput" placeholder="Mot de passe" name="password"></div>
-                                    <div class="col-sm-6"><input class="form-control form-control-user" type="password" id="exampleRepeatPasswordInput" placeholder="Confirmer mot de passe" name="password_confirmation"></div>
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <div class="input-group mb-3">
+                                            <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Mot de passe">
+                                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                                <i class="fa fa-eye" id="eyeIcon"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="input-group mb-3">
+                                            <input type="password" class="form-control form-control-user" id="password" name="password_confirmation" placeholder=" Confirmer mot de passe">
+                                            <button class="btn btn-outline-secondary" type="button" id="togglePassword" style="">
+                                                <i class="fa fa-eye" id="eyeIcon"></i>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row mb-3">
                                     <select name="role" id="role" class="form-control form-control-user">

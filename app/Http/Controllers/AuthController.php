@@ -65,9 +65,17 @@ class AuthController extends Controller
         $user = User::find($id);
         if ($user)
         {
-            $user->profile_photo = $this->treatPhoto($request);
-            $user->save();
-            return redirect()->route('profile', ['id' => $user->id]);
+            if ($request->hasFile('photo'))
+            {
+                $user->profile_photo = $this->treatPhoto($request);
+                $user->save();
+                return redirect()->route('profile', ['id' => $user->id]);
+            }
+            else
+            {
+                return back()->withErrors(['erreur' => 'Veuillez choisiz un fichier']);
+            }
+
         }
         else
         {
@@ -92,6 +100,9 @@ class AuthController extends Controller
                 return back()->withErrors(['photo' => 'Erreur lors de l\'enregistrement de l\'image.']);
             }
             return $filename;
+        }
+        else{
+            return back()->withErrors(['erreur' => 'Veuillez choisiz un fichier']);
         }
     }
 
@@ -135,6 +146,14 @@ class AuthController extends Controller
         }
         $user->save();
         return redirect()->route('userlist')->with('success', 'Utilisateur mis à jour avec succès.');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 
 
