@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Generation extends Model
+class Rapport extends Model
 {
     use HasFactory;
-    protected $table = 'generations';
+    protected $table = 'rapports';
     protected $fillable = [
       'user_id',
-      'date_arrive',
-      'effectif',
-      'race',
-      'poids_moyen',
-      'closed',
+      'generation_id',
+      'avec_mortalite',
+      'mortalite',
+      'cause_mortalite',
+      'commentaire',
       'statut'
     ];
 }
