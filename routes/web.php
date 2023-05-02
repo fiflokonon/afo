@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GenerationController;
+use App\Http\Controllers\RapportController;
 use App\Models\Generation;
 use App\Models\Role;
 use App\Models\User;
@@ -31,6 +32,7 @@ Route::get('/dashboard', function (){
 Route::get('/addgeneration', function (){
     return view('pages.addgeneration');
 })->name('new-generation');
+
 Route::get('/inscription', function () {
     $roles = Role::all();
     return view('pages.adduser', ['roles' => $roles]);
@@ -51,6 +53,18 @@ Route::get('/generationlist', function (){
 
     return view('pages.generationlist', ['generations' => $generations, 'colors' => $colors] );
 })->name('generationlist');
+
+Route::get('/generations/{id}/rapportlist/', function ($id){
+    $generation = Generation::where('id', $id)->first();
+    $rapports = $generation->rapports;
+    foreach ($rapports as $rapport)
+    {
+        $carbonDate = Carbon::parse($rapport->created_at);
+        $rapport->created_at = $carbonDate->locale('fr_FR')->isoFormat('LL');
+    }
+
+    return view('pages.rapportlist', ['rapports' => $rapports] );
+})->name('rapportlist');
 
 Route::get('/users', function () {
     $users = User::all();
@@ -86,5 +100,6 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/addphoto/{id}', [AuthController::class, 'uploadPhoto'])->name('addphoto');
 Route::post('/updateuser/{id}', [AuthController::class, 'updateUser'])->name('updateuser');
 Route::post('/addgeneration', [GenerationController::class, 'addGeneration'])->name('addgeneration');
+Route::post('/addrapport', [RapportController::class, 'addRapport'])->name('addrapport');
 
 

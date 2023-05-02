@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('commentaire')->nullable();
             $table->foreignId('user_id');
             $table->foreignId('generation_id');
+            $table->bigInteger('poids_moyen')->nullable();
             $table->boolean('statut')->default(0);
             $table->timestamps();
         });

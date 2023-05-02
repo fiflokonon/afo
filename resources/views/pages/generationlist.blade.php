@@ -25,7 +25,7 @@
                                     <a href="#"><button type="button" class="btn btn-custom"><i class="fa fa-bar-chart">Evolution</i></button></a>
                                 </div>
                                 <div class="btn-group" role="group">
-                                    <a href="#"><button type="button" class="btn btn-custom"><i class="fa fa-comment"></i>Rapports</button></a>
+                                    <a href="{{ route('rapportlist', ['id' => $generation->id]) }}"><button type="button" class="btn btn-custom"><i class="fa fa-comment"></i>Rapports</button></a>
                                 </div>
                                 <div class="btn-group" role="group">
                                     <a href="#"><button type="button" class="btn btn-custom"><i class="fa fa-trash"></i>Retirer</button></a>

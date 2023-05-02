@@ -15,7 +15,13 @@ class Rapport extends Model
       'avec_mortalite',
       'mortalite',
       'cause_mortalite',
+      'poids_moyen',
       'commentaire',
       'statut'
     ];
+
+    public function generation()
+    {
+        return $this->belongsTo(Generation::class);
+    }
 }
