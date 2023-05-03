@@ -24,4 +24,9 @@ class Rapport extends Model
     {
         return $this->belongsTo(Generation::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

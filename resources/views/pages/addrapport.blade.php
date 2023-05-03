@@ -30,19 +30,62 @@
                                     </ul>
                                 </div>
                             @endif
-                            <form class="user" method="POST" action="{{ route('addrapport') }}" enctype="multipart/form-data">
+                            <form class="user" method="POST" action="{{ route('addrapport', ['id' => $id]) }}" enctype="multipart/form-data">
                                 @csrf
-                                <div class="mb-3"><input class="form-control form-control-user" type="number" id="exampleInputEmail" placeholder="Mortalité" name="mortalite"></div>
-                                <div class="mb-3"><input class="form-control form-control-user" type="text" id="exampleInputEmail"  placeholder="Cause de mortalité" name="cause_mortalite"></div>
-                                <div class="mb-3"><input class="form-control form-control-user" type="number" id="exampleInputEmail"  placeholder="Poids moyen en (kg)" name="poids"></div>
-                                <div class="mb-3"><input class="form-control form-control-user" type="text" id="exampleInputEmail" placeholder="Commentaire" name="comment"></div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="mortalite_option" id="mortalite_option_1" value="1" checked>
+                                    <label class="form-check-label" for="mortalite_option_1">
+                                        Avec mortalité
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="mortalite_option" id="mortalite_option_2" value="0">
+                                    <label class="form-check-label" for="mortalite_option_2">
+                                        Sans mortalité
+                                    </label>
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control form-control-user" type="number" placeholder="Mortalité" name="mortalite" id="mortalite" style="display: none;">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control form-control-user" type="text" placeholder="Cause de mortalité" name="cause_mortalite" id="cause_mortalite" style="display: none;">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control form-control-user" type="number" placeholder="Poids moyen en (kg)" name="poids">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control form-control-user" type="text" placeholder="Commentaire" name="comment">
+                                </div>
                                 <button class="btn btn-primary d-block btn-user w-100" type="submit">Soumettre</button>
                             </form>
+                            <!--<form class="user" method="POST" action="{{ route('addrapport', ['id' => $id]) }}" enctype="multipart/form-data">
+                                @csrf
+                                <div class="mb-3"><input class="form-control form-control-user" type="number" placeholder="Mortalité" name="mortalite"></div>
+                                <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Cause de mortalité" name="cause_mortalite"></div>
+                                <div class="mb-3"><input class="form-control form-control-user" type="number" placeholder="Poids moyen en (kg)" name="poids"></div>
+                                <div class="mb-3"><input class="form-control form-control-user" type="text" placeholder="Commentaire" name="comment"></div>
+                                <button class="btn btn-primary d-block btn-user w-100" type="submit">Soumettre</button>
+                            </form>-->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        const radioButtons = document.querySelectorAll('input[type=radio][name=mortalite_option]');
+
+        radioButtons.forEach(radioButton => {
+            radioButton.addEventListener('change', function() {
+                if (this.value === '1') {
+                    document.getElementById('mortalite').style.display = 'block';
+                    document.getElementById('cause_mortalite').style.display = 'block';
+                } else {
+                    document.getElementById('mortalite').style.display = 'none';
+                    document.getElementById('cause_mortalite').style.display = 'none';
+                }
+            });
+        });
+    </script>
     </body>
 @endsection

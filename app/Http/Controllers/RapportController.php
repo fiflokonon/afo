@@ -10,8 +10,7 @@ class RapportController extends Controller
 {
     public function addRapport($id, Request $request)
     {
-        if (Auth::check())
-        {
+        if (Auth::check()) {
             // Validation des données envoyées via le formulaire
             $validatedData = $request->validate([
                 'mortalite' => 'nullable|integer',
@@ -19,7 +18,6 @@ class RapportController extends Controller
                 'poids' => 'nullable|integer',
                 'comment' => 'required|string',
             ]);
-
             // Création d'une nouvelle génération avec les données validées
             $rapport = new Rapport();
             $rapport->mortalite = $validatedData['mortalite'];
@@ -28,9 +26,7 @@ class RapportController extends Controller
             $rapport->generation_id = $id;
             $rapport->user_id = Auth::user()->id;
             $rapport->save();
-            // Redirection vers une page de confirmation
-            return redirect('rapportlist');
-
+            return redirect()->route('rapportlist', ['id' => $id]);
         }
         else
         {
