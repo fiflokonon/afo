@@ -4,11 +4,11 @@
 
 @section('content')
     <body class="bg-gradient-primary">
-    <div class="container">
+    <div class="container w-50">
         <div class="card shadow-lg o-hidden border-0 my-5">
             <div class="card-body p-0">
                 <div class="row">
-                    <div class="col-lg-7">
+                    <div class="col-lg-12">
                         <div class="p-5">
                             <div class="text-center">
                                 <h4 class="text-dark mb-4">Nouvelle génération</h4>

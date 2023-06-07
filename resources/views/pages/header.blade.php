@@ -19,9 +19,9 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('userlist') }}"><i class="fas fa-table"></i> <span>Utilisateurs</span></a></li>
             @endif
             <li class="nav-item"><a class="nav-link" href="{{ route('generationlist') }}"><i class="fas fa-user-nurse"></i> <span>Générations</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-video-camera"></i> <span>Flux vidéo</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('flux') }}"><i class="fas fa-video-camera"></i> <span>Flux vidéo</span></a></li>
             <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-chart-line"></i> <span>Évolution</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-file-contract"></i> <span>Étapes</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('etapelist') }}"><i class="fas fa-file-contract"></i> <span>Étapes</span></a></li>
         </ul>
         <div class="text-center d-none d-md-inline">
             <button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button>

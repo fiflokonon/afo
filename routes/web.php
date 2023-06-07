@@ -26,9 +26,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/unauthorized', function () {
+    return view('errors.error401');
+})->name('unauthorized');
+
 Route::get('/dashboard', function (){
     return view('pages.dashboard');
 })->name('dashboard');
+
+Route::get('/flux', function () {
+    return view('pages.fluxvideo', ['title' => 'Flux vidéo']);
+})->name('flux');
+
+Route::get('/etapes', function () {
+    return view('pages.etapelist', ['title' => 'Liste des étapes']);
+})->name('etapelist');
+
+Route::get('/etape-details', function (){
+    return view('pages.etapedetails', ['title' =>  'Détails d\'une étape']);
+})->name('etapedetails');
 
 Route::get('/addgeneration', function (){
     return view('pages.addgeneration');
