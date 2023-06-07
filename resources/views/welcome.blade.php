@@ -5,19 +5,16 @@
 
 @section('content')
     <body class="bg-gradient-primary mt-5">
-    <div class="container">
+    <div class="container w-50">
         <div class="row justify-content-center">
             <div class="col-md-9 col-lg-12 col-xl-10">
                 <div class="card shadow-lg o-hidden border-0 my-5">
                     <div class="card-body p-0">
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-flex">
-                                <div class="flex-grow-1 bg-login-image" style="background-image: url('/assets/img/dogs/image3.jpeg')"></div>
-                            </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h4 class="text-dark mb-4">Welcome Back!</h4>
+                                        <h4 class="text-dark mb-4">Connexion</h4>
                                     </div>
                                     @if (session('error'))
                                         <div class="alert alert-danger">
