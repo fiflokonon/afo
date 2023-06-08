@@ -4,17 +4,19 @@
     <body id="page-top">
     <div id="wrapper">
         @include('pages.header')
-        <div class="container-fluid">
+        <div class="container-fluid justify-content-center">
             <h3 class="text-lg-center mb-3">Liste des générations</h3>
-            <div class="row">
+            <div class="row ">
+                @if(Auth::user()->role->code = 'proprio')
                 <div class="col-md-4">
-                    <a href="{{ route('addgeneration') }}"class="btn btn-primary" style="width: 150px; height: 100px">
-                        <div style="position: relative; top: 10px;">
+                    <a href="{{ route('addgeneration') }}"class="btn btn-primary" style="width: 200px; height: 200px">
+                        <div style="position: relative; top: 100px;">
                             <i class="fa fa-plus"></i>
                             Nouvelle génération
                         </div>
                     </a>
                 </div>
+                @endif
                 @if($generations != null)
                     @foreach($generations as $generation)
                         @php
