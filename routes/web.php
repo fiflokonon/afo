@@ -39,12 +39,36 @@ Route::get('/flux', function () {
 })->name('flux');
 
 Route::get('/etapes', function () {
-    return view('pages.etapelist', ['title' => 'Liste des étapes']);
+    return view('etapes.etapelist', ['title' => 'Liste des étapes']);
 })->name('etapelist');
 
-Route::get('/etape-details', function (){
-    return view('pages.etapedetails', ['title' =>  'Détails d\'une étape']);
-})->name('etapedetails');
+Route::get('/etape1', function (){
+    return view('etapes.etapedetails-1', ['title' =>  'Détails d\'une étape']);
+})->name('etapedetails1');
+
+Route::get('/etape2', function (){
+    return view('etapes.etapedetails-2', ['title' =>  'Détails d\'une étape']);
+})->name('etapedetails2');
+
+Route::get('/etape3', function (){
+    return view('etapes.etapedetails-3', ['title' =>  'Détails d\'une étape']);
+})->name('etapedetails3');
+
+Route::get('/etape4', function (){
+    return view('etapes.etapedetails-4', ['title' =>  'Détails d\'une étape']);
+})->name('etapedetails4');
+
+Route::get('/etape5', function (){
+    return view('etapes.etapedetails-5', ['title' =>  'Détails d\'une étape']);
+})->name('etapedetails5');
+
+Route::get('/etape6', function (){
+    return view('etapes.etapedetails-6', ['title' =>  'Détails d\'une étape']);
+})->name('etapedetails6');
+
+Route::get('/etape7', function (){
+    return view('etapes.etapedetails-7', ['title' =>  'Détails d\'une étape']);
+})->name('etapedetails7');
 
 Route::get('/addgeneration', function (){
     return view('pages.addgeneration');
